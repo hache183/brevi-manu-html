@@ -390,7 +390,7 @@ section:not(.sezione-progetti) h1 {
 .descrizione-progetto {
   padding: 0 15px 15px 15px;
   margin: 0;
-  color: #fff;
+  color: black !important;
   line-height: 1.4;
   font-size: 0.9rem;
   text-align: center;
@@ -968,5 +968,154 @@ section:not(.sezione-progetti) h1 {
   
   .progetto-header h2 {
     font-size: 1.3rem;
+  }
+}
+
+/* Stili per la pagina Contributi */
+.contributi-hero {
+  background: url("../src/images/castello.jpg") center center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contributi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(15, 63, 92, 0.4) 50%,
+    rgba(74, 144, 226, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.contributi-content {
+  padding: 80px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contributo-item {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #4a90e2;
+  transition: all 0.3s ease;
+}
+
+.contributo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.contributo-item h2 {
+  color: #0f3f5c;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.contributo-item h3 {
+  color: #4a90e2;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.descrizione-contributo {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.finanziamento {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #28a745;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.finanziamento strong {
+  color: #0f3f5c;
+}
+
+.importo {
+  font-weight: 700;
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+/* Responsive per la pagina contributi */
+@media (max-width: 768px) {
+  .contributi-content {
+    padding: 60px 30px;
+    margin-top: -30px;
+  }
+
+  .contributo-item {
+    padding: 30px 20px;
+    margin-bottom: 30px;
+  }
+
+  .contributo-item h2 {
+    font-size: 1.6rem;
+  }
+
+  .contributo-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .descrizione-contributo {
+    font-size: 1rem;
+  }
+
+  .finanziamento {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contributi-content {
+    padding: 40px 20px;
+    margin-top: -20px;
+  }
+
+  .contributo-item {
+    padding: 25px 15px;
+  }
+
+  .contributo-item h2 {
+    font-size: 1.4rem;
+  }
+
+  .contributo-item h3 {
+    font-size: 1rem;
   }
 }
