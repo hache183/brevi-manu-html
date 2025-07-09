@@ -1,0 +1,295 @@
+/* Regole generali */
+:root {
+  font-family: Poppins, sans-serif;
+  color: #213547;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  background-image: url("../public/sfondo3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 15px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #ffffffd7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.logo {
+  height: 45px;
+}
+
+.breviManu {
+  width: 120px;
+  height: auto;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #0f3f5c;
+  padding: 8px 12px;
+  border-radius: 25px;
+}
+
+.navbar-links a:hover {
+  background-color: #f0f0f0;
+}
+
+.navbar-hidden {
+  top: -80px;
+  transition: top 0.3s;
+}
+
+.navbar-visible {
+  top: 15px;
+  transition: top 0.3s;
+}
+
+/* Hero (castello) */
+.castello {
+  background-image: url("../src/images/castello.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroTitle {
+  color: #fff;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px #000;
+  margin: 0;
+}
+
+.descrizione-titolo {
+  color: #fff;
+  width: 850px;
+  text-shadow: 2px 2px 4px #000;
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sezioni generiche */
+section {
+  padding: 50px;
+  margin: 20px 0;
+}
+
+.sezione-progetti h1,
+.sezione-progetti p,
+#chisiamo h1,
+#chisiamo p {
+  text-align: center;
+}
+
+/* Progetti */
+.progetti-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.progetto-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.progetto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.progetto-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.progetto-link {
+  display: block;
+  text-align: center;
+  margin: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  border: 1px solid #000;
+  text-decoration: none;
+}
+
+.progetto-link:hover {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+}
+
+/* Contatti */
+.contatti-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contatti-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contatti-form input,
+.contatti-form textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #ffffff2e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contatti-form button {
+  padding: 15px;
+  color: #000;
+  background-color: #ffffff2e;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contatti-form button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.contatti-info {
+  flex: 1;
+  min-width: 300px;
+  background-color: #ffffff2e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #002a44;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.logo-img {
+  width: 70px;
+  height: auto;
+}
+
+.footer-links,
+.footer-policies {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a,
+.footer-policies a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #bbb;
+  padding-top: 15px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

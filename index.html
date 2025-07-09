@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brevi Manu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-visible">
+    <div class="navbar-left">
+      <img src="../src/images/logo.png" alt="Logo" class="logo">
+      <img src="../src/images/scrittabrevimanu.png" alt="Brevi Manu" class="breviManu">
+    </div>
+    <button class="menu-toggle">&#9776;</button>
+    <div class="navbar-links">
+      <a href="#home">HOME</a>
+      <a href="#progetti">PROGETTI</a>
+      <a href="#chisiamo">CHI SIAMO</a>
+      <a href="#contatti">CONTATTI</a>
+      <a href="#">CONTRIBUTI</a>
+    </div>
+  </nav>
+
+  <header id="home" class="castello">
+    <h1 class="heroTitle">Brevi Manu APS</h1>
+    <p class="descrizione-titolo">
+      Brevi Manu APS è un’associazione di promozione sociale nata a Sannicandro di Bari dall’iniziativa di sette giovani impegnati da anni in attività culturali, sociali ed educative. L’associazione promuove il protagonismo giovanile, creando spazi e occasioni di partecipazione, confronto e crescita personale e collettiva. Attraverso laboratori, eventi, percorsi formativi e progettualità condivise, Brevi Manu valorizza l’inclusione, la creatività e la cittadinanza attiva, con l’obiettivo di costruire dal basso un futuro più sostenibile, solidale e partecipato per la comunità locale.
+    </p>
+  </header>
+
+  <section id="progetti" class="sezione-progetti">
+    <h1>I NOSTRI PROGETTI</h1>
+    <p>Scopri i progetti realizzati con passione e dedizione.</p>
+
+    <div class="progetti-container">
+      <div class="progetto-card">
+        <img src="../src/images/sovra.png" alt="Sovranaturale" class="progetto-img">
+        <h2>Sovranaturale</h2>
+        <p class="descrizione-progetto">Salone di vini naturali e gastronomia.</p>
+        <a href="https://sovranaturale.it/" target="_blank" class="progetto-link">Visita il sito</a>
+      </div>
+
+      <div class="progetto-card">
+        <img src="../src/images/sementi.png" alt="Progetto Sementi" class="progetto-img">
+        <h2>Progetto Sementi</h2>
+        <p class="descrizione-progetto">Spazio per la collaborazione e la crescita dei giovani.</p>
+        <a href="https://progettosementi.it/" target="_blank" class="progetto-link">Visita il sito</a>
+      </div>
+
+      <div class="progetto-card">
+        <img src="../src/images/sovra.png" alt="Sovranaturale Pop Up" class="progetto-img">
+        <h2>Sovranaturale Pop Up</h2>
+        <p class="descrizione-progetto">Eventi side di Sovranaturale.</p>
+        <a href="https://sovranaturale.it/sovranaturale-pop-up/" target="_blank" class="progetto-link">Visita il sito</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="chisiamo">
+    <h1>CHI SIAMO</h1>
+    <p class="chi-siamo-text">
+      Tra le principali attività di Brevi Manu APS c’è Sovranaturale, un progetto dedicato alla promozione del vino naturale attraverso una fiera annuale e una rassegna itinerante di cene in collaborazione con produttori, ristoratori e distributori attenti alla sostenibilità. Con Sementi, l’associazione ha attivato uno spazio di coworking e aule per la formazione nel centro storico di Sannicandro, aperto a freelance, professionisti e realtà del territorio. Uno spazio dinamico, inclusivo e collaborativo, pensato per stimolare reti, nuove competenze e processi di innovazione sociale e culturale.
+    </p>
+  </section>
+
+  <section id="contatti" class="contatti">
+    <h1>CONTATTACI</h1>
+    <p>Hai domande o vuoi collaborare con noi? Compila il modulo o usa i nostri recapiti.</p>
+
+    <div class="contatti-container">
+      <form id="contactForm" class="contatti-form">
+        <input type="text" name="nome" placeholder="Il tuo nome" required>
+        <input type="email" name="email" placeholder="La tua email" required>
+        <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
+        <button type="submit">Invia</button>
+      </form>
+
+      <div class="contatti-info">
+        <h3>Informazioni di Contatto</h3>
+        <p><span class="icon">📧</span> ass.brevimanu@gmail.com</p>
+        <p><span class="icon">📞</span> +39 351 512 3934</p>
+        <p><span class="icon">📍</span> Via Vito Vittorio Lenoci, 8</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../src/images/logo.png" alt="Brevi Manu Logo" class="logo-img">
+        <h2>Brevi Manu</h2>
+        <p>Connettendo i giovani per un futuro migliore</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#chisiamo">Chi Siamo</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+
+      <div class="footer-policies">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Brevi Manu. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
