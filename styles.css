@@ -5,6 +5,10 @@
   background-color: #ffffff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   scroll-behavior: smooth;
@@ -372,19 +376,21 @@ section:not(.sezione-progetti) h1 {
   object-fit: cover;
 }
 
+
 .progetto-card h3 {
   padding: 15px 15px 5px 15px;
   margin: 0;
-  color: #000;
+  color: #fff;
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
 }
 
+
 .descrizione-progetto {
   padding: 0 15px 15px 15px;
   margin: 0;
-  color: #000000;
+  color: #fff;
   line-height: 1.4;
   font-size: 0.9rem;
   text-align: center;
@@ -454,6 +460,12 @@ section:not(.sezione-progetti) h1 {
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+.contatti-form textarea {
+  resize: vertical;
 }
 
 .contatti-form input:focus,
@@ -867,6 +879,8 @@ section:not(.sezione-progetti) h1 {
   .contatti-form textarea {
     padding: 12px;
     font-size: 0.95rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .contatti-form button {
