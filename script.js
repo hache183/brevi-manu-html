@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isActive) {
         navLinks.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       } else {
         navLinks.classList.add('active');
         menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
       }
       
       console.log('Menu toggled:', !isActive); // Debug
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
     });
 
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.tagName === 'A') {
         navLinks.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
     });
 
@@ -47,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
     });
   } else {
