@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form submission con Formspree
+  // Form submission con Formspree e validazione privacy
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const nome = formData.get('nome');
       const email = formData.get('email');
       const messaggio = formData.get('messaggio');
+      const privacyConsent = formData.get('privacy_consent');
 
       // Validazione lato client
       if (!nome || !email || !messaggio) {
@@ -94,8 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Validazione consenso privacy
+      if (!privacyConsent) {
+        showNotification('❌ È necessario accettare il trattamento dei dati personali per procedere', 'error');
+        resetButton();
+        return;
+      }
+
       try {
-        await sendEmailWithFormspree(nome, email, messaggio);
+        await sendEmailWithFormspree(nome, email, messaggio, privacyConsent);
       } catch (error) {
         console.error('Errore invio:', error);
         showNotification('❌ Errore durante l\'invio. Riprova o contattaci direttamente.', 'error');
@@ -112,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Invio email con Formspree
-  async function sendEmailWithFormspree(nome, email, messaggio) {
+  async function sendEmailWithFormspree(nome, email, messaggio, privacyConsent) {
     // SOSTITUISCI 'myzpgqno' CON IL TUO ID FORMSPREE
     const formspreeEndpoint = 'https://formspree.io/f/myzpgqno';
 
@@ -120,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: nome,
       email: email,
       message: messaggio,
+      privacy_consent: privacyConsent ? 'Accettato' : 'Non accettato',
       _replyto: email,
       _subject: `Nuovo contatto da ${nome} - Sito Brevi Manu`,
       _format: 'plain'
@@ -284,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Osserva elementi per le animazioni
   const animatedElements = document.querySelectorAll(
-    '.progetto-card, .chi-siamo-text, .contatti-form, .contatti-info, .contributo-item'
+    '.progetto-card, .chi-siamo-text, .contatti-form, .contatti-info, .contributo-item, .privacy-section'
   );
   
   animatedElements.forEach(el => {
@@ -346,4 +355,3 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = src;
   });
 });
-

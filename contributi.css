@@ -1,0 +1,142 @@
+/* ==============================
+   GLOBAL STYLES (styles.css)
+   ============================== */
+
+/* Variables, resets, typography */
+:root {
+  --primary-blue: #0f3f5c;
+  --secondary-blue: #4a90e2;
+  --white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --border-radius: 12px;
+  --border-radius-large: 20px;
+  --shadow-light: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-medium: 0 4px 15px rgba(0,0,0,0.15);
+  --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+  --transition: all 0.3s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  background: #fafbfc;
+  color: #333;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Utilities */
+.sr-only { /* ... */ }
+
+/* Navbar */
+.navbar { /* 固定中心面板样式 */ }
+.navbar-left, .navbar-links { /* ... */ }
+.menu-toggle { /* ... */ }
+
+/* Castello Hero */
+.castello { /* ... */ }
+
+/* Sezione Progetti */
+.sezione-progetti::before { /* ... */ }
+.progetti-container { /* ... */ }
+.progetto-card { /* ... */ }
+.progetto-img, .progetto-link { /* ... */ }
+
+/* Chi siamo */
+#chisiamo .chi-siamo-text { /* ... */ }
+
+/* Contatti */
+.contatti { /* ... */ }
+.contatti-form, .contatti-info { /* ... */ }
+.contatti-form input, .contatti-form button, .contatti-info p { /* ... */ }
+
+/* Footer */
+.footer { /* ... */ }
+.footer-container, .footer-links, .footer-policies { /* ... */ }
+
+/* Responsività generica */
+@media (hover: none) and (pointer: coarse) { /* ... */ }
+@media (max-width: 480px) { /* miglior legibilità */ }
+
+
+/* ======================================
+   PAGE-SPECIFIC OVERRIDES: contributi.html
+   (applied solo quando <body class="page-contributi">)
+   ======================================
+*/
+
+.page-contributi body { /* nessun overflow orizzontale */ }
+
+/* Hero Contributi */
+.page-contributi header.contributi-hero {
+  position: relative;
+  background: url("./src/images/castello.jpg") center/cover no-repeat;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+.page-contributi header.contributi-hero .mountain-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  max-width: 1400px;
+  height: 60%;
+  z-index: 1;
+}
+.page-contributi header.contributi-hero .heroTitle,
+.page-contributi header.contributi-hero .descrizione-titolo {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Contenuto Contributi */
+.page-contributi section.contributi-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.page-contributi section.contributi-content .contributo-item {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: clamp(24px, 5vw, 48px);
+  border-left: 4px solid var(--secondary-blue);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+}
+.page-contributi section.contributi-content .contributo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Media Queries contributi.html */
+@media (max-width: 599px) {
+  .page-contributi header.contributi-hero { padding-top: 4rem; padding-bottom: 3rem; }
+  .page-contributi .heroTitle { font-size: 1.8rem; }
+  .page-contributi .descrizione-titolo { font-size: 0.9rem; }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+  .page-contributi header.contributi-hero { padding-top: 6rem; padding-bottom: 4.5rem; }
+  .page-contributi .heroTitle { font-size: 2.5rem; }
+  .page-contributi .descrizione-titolo { font-size: 1rem; max-width: 80%; }
+}
+@media (min-width: 1025px) {
+  .page-contributi header.contributi-hero { padding-top: 8rem; padding-bottom: 6rem; }
+  .page-contributi .heroTitle { font-size: 3rem; }
+  .page-contributi .descrizione-titolo { font-size: 1.1rem; max-width: 60%; }
+}
