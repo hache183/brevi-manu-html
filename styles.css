@@ -741,13 +741,13 @@ section h1::after {
 /* Fix per navbar mobile che si sovrappone al contenuto */
 @media (max-width: 480px) {
   .castello {
-    padding-top: 120px;
+    padding-top: 140px;
     height: 95vh; /* Aumentato per schermi medi */
     min-height: 580px;
   }
-  
+
   .contributi-hero {
-    padding-top: 120px;
+    padding-top: 140px;
     height: 50vh; /* Aumentato leggermente */
     min-height: 300px;
   }
@@ -756,7 +756,7 @@ section h1::after {
   body.menu-open .castello,
   body.menu-open .contributi-hero,
   body.menu-open .privacy-hero {
-    padding-top: 180px;
+    padding-top: 200px;
   }
 }
 
@@ -1960,7 +1960,7 @@ textarea:focus {
   .privacy-hero {
     height: 45vh;
     min-height: 300px;
-    padding: 100px 16px 16px;
+    padding: 120px 16px 16px;
   }
   
   .privacy-content {
@@ -2010,7 +2010,7 @@ textarea:focus {
 
 @media (max-width: 320px) {
   .privacy-hero {
-    padding: 100px 12px 12px;
+    padding: 120px 12px 12px;
   }
   
   .privacy-content {
