@@ -35,6 +35,10 @@ body {
   overflow-x: hidden;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 /* Background generale */
 body::before {
   content: '';
@@ -737,20 +741,21 @@ section h1::after {
 /* Fix per navbar mobile che si sovrappone al contenuto */
 @media (max-width: 480px) {
   .castello {
-    padding-top: 120px;
+    padding-top: 140px;
     height: 95vh; /* Aumentato per schermi medi */
     min-height: 580px;
   }
-  
+
   .contributi-hero {
-    padding-top: 120px;
+    padding-top: 140px;
     height: 50vh; /* Aumentato leggermente */
     min-height: 300px;
   }
   
-  /* Quando il menu è aperto, aggiungi più spazio */
-  .navbar-links.active ~ .castello,
-  .navbar-links.active ~ .contributi-hero {
+  /* Quando il menu è aperto, sposta il contenuto verso il basso */
+  body.menu-open .castello,
+  body.menu-open .contributi-hero,
+  body.menu-open .privacy-hero {
     padding-top: 200px;
   }
 }
@@ -1436,10 +1441,12 @@ section h1::after {
 
 @media (max-width: 480px) {
   .navbar {
-    top: 10px;
-    width: calc(100% - 16px);
-    padding: 10px 20px;
-    border-radius: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 0;
+    transform: none;
   }
   
   .breviManu {
@@ -1953,7 +1960,7 @@ textarea:focus {
   .privacy-hero {
     height: 45vh;
     min-height: 300px;
-    padding: 100px 16px 16px;
+    padding: 120px 16px 16px;
   }
   
   .privacy-content {
@@ -2003,7 +2010,7 @@ textarea:focus {
 
 @media (max-width: 320px) {
   .privacy-hero {
-    padding: 100px 12px 12px;
+    padding: 120px 12px 12px;
   }
   
   .privacy-content {
