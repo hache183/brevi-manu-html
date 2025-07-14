@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form submission con Formspree (invisibile all'utente)
+  // Form submission con Formspree
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -111,10 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Invio email con Formspree (completamente invisibile)
+  // Invio email con Formspree
   async function sendEmailWithFormspree(nome, email, messaggio) {
-    // Sostituisci 'YOUR_FORM_ID' con il tuo ID Formspree
-    const formspreeEndpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+    // SOSTITUISCI 'myzpgqno' CON IL TUO ID FORMSPREE
+    const formspreeEndpoint = 'https://formspree.io/f/myzpgqno';
 
     const payload = {
       name: nome,
@@ -122,8 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message: messaggio,
       _replyto: email,
       _subject: `Nuovo contatto da ${nome} - Sito Brevi Manu`,
-      _format: 'plain',
-      _next: window.location.href // Evita redirect di Formspree
+      _format: 'plain'
     };
 
     try {
@@ -160,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Sistema di notifiche elegante (al posto di alert)
+  // Sistema di notifiche elegante
   function showNotification(message, type = 'info') {
     // Rimuovi notifiche esistenti
     const existingNotification = document.querySelector('.custom-notification');

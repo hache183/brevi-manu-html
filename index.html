@@ -71,12 +71,19 @@
     <p>Hai domande o vuoi collaborare con noi? Compila il modulo o usa i nostri recapiti per metterti in contatto.</p>
 
     <div class="contatti-container">
-      <form id="contactForm" class="contatti-form">
-        <input type="text" name="nome" placeholder="Il tuo nome" required aria-label="Il tuo nome">
-        <input type="email" name="email" placeholder="La tua email" required aria-label="La tua email">
-        <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required aria-label="Il tuo messaggio"></textarea>
-        <button type="submit">Invia</button>
-      </form>
+<form id="contactForm" class="contatti-form" action="https://formspree.io/f/INSERISCI_QUI_IL_TUO_ID" method="POST">
+  <input type="text" name="nome" placeholder="Il tuo nome" required aria-label="Il tuo nome">
+  <input type="email" name="email" placeholder="La tua email" required aria-label="La tua email">
+  <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required aria-label="Il tuo messaggio"></textarea>
+  
+  <!-- Campo nascosto per identificare il form -->
+  <input type="hidden" name="_subject" value="Nuovo contatto dal sito Brevi Manu">
+  
+  <!-- Protezione anti-spam -->
+  <input type="text" name="_gotcha" style="display:none">
+  
+  <button type="submit">Invia</button>
+</form>
 
       <div class="contatti-info">
         <h3>Informazioni di Contatto</h3>
