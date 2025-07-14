@@ -691,7 +691,6 @@ section h1::after {
 }
 
 .finanziamento::before {
-  content: '💰';
   position: absolute;
   top: 20px;
   right: 24px;
@@ -1632,137 +1631,395 @@ textarea:focus {
   }
 }
 
-/* Stili per il consenso privacy nel form di contatto */
-.privacy-consent {
-  margin: 20px 0;
-  padding: 20px;
-  background: rgba(74, 144, 226, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(74, 144, 226, 0.1);
-}
+/* ======================================
+   STILI SPECIFICI PER PRIVACY POLICY
+   Aggiungi questo CSS al tuo styles.css esistente
+   ====================================== */
 
-.checkbox-container {
+/* Hero Privacy Policy */
+.privacy-hero {
+  background: url("../src/images/castello.jpg") center center/cover no-repeat;
+  height: 60vh;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   position: relative;
+  overflow: hidden;
+  min-height: 400px;
 }
 
-.checkbox-container input[type="checkbox"] {
+.privacy-hero::before {
+  content: '';
   position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(15, 63, 92, 0.4) 50%,
+    rgba(74, 144, 226, 0.6) 100%
+  );
+  z-index: 1;
 }
 
-.checkmark {
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
-  border: 2px solid #ddd;
-  border-radius: 4px;
+.privacy-hero .heroTitle,
+.privacy-hero .descrizione-titolo {
   position: relative;
-  flex-shrink: 0;
-  margin-top: 2px;
+  z-index: 2;
+}
+
+.privacy-hero .heroTitle {
+  color: var(--white);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+  margin: 0 0 24px 0;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.privacy-hero .descrizione-titolo {
+  color: var(--white);
+  max-width: min(800px, 90%);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 20px 28px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
+/* Contenuto Privacy Policy */
+.privacy-content {
+  max-width: 1000px;
+  margin: -60px auto 80px;
+  padding: clamp(40px, 6vw, 80px) clamp(30px, 5vw, 60px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-large);
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid var(--glass-border);
+}
+
+.privacy-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Sezioni Privacy */
+.privacy-section {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: clamp(28px, 4vw, 40px);
+  box-shadow: var(--shadow-light);
+  border-left: 4px solid var(--secondary-blue);
   transition: var(--transition);
+  position: relative;
 }
 
-.checkbox-container:hover input ~ .checkmark {
-  border-color: var(--secondary-blue);
-  background-color: rgba(74, 144, 226, 0.05);
+.privacy-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
 }
 
-.checkbox-container input:checked ~ .checkmark {
-  background-color: var(--secondary-blue);
-  border-color: var(--secondary-blue);
+.privacy-section h2 {
+  color: var(--primary-blue);
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(74, 144, 226, 0.1);
+  position: relative;
 }
 
-.checkmark:after {
-  content: "";
+.privacy-section h2::before {
+  content: '';
   position: absolute;
-  display: none;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--secondary-blue);
+  border-radius: 1px;
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.consent-text {
+.privacy-section p {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.7;
   color: var(--text-dark);
-  flex: 1;
+  margin-bottom: 16px;
 }
 
-.consent-text a {
+.privacy-section p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-section ul {
+  margin: 16px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.privacy-section li {
+  position: relative;
+  padding: 12px 0 12px 32px;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.privacy-section li:last-child {
+  border-bottom: none;
+}
+
+.privacy-section li::before {
+  content: '•';
+  position: absolute;
+  left: 12px;
+  top: 12px;
   color: var(--secondary-blue);
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.privacy-section strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Sezione contatti privacy speciale */
+.privacy-contact {
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(118, 75, 162, 0.05));
+  border-radius: var(--border-radius);
+  padding: clamp(32px, 5vw, 48px);
+  border: 2px solid rgba(74, 144, 226, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.privacy-contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.03) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.privacy-contact h2 {
+  color: var(--primary-blue);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.privacy-contact > p {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
   transition: var(--transition);
+  border: 1px solid rgba(74, 144, 226, 0.1);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
 }
 
-.consent-text a:hover {
-  border-bottom-color: var(--secondary-blue);
+.contact-info p:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--secondary-blue);
 }
 
-.consent-text a:focus {
-  outline: 2px solid var(--secondary-blue);
-  outline-offset: 2px;
-  border-radius: 2px;
+.contact-info .icon {
+  margin-right: 12px;
+  font-size: 1.3rem;
+  min-width: 24px;
+  color: var(--secondary-blue);
 }
 
-/* Stato di errore per checkbox non selezionata */
-.checkbox-container input:invalid ~ .checkmark {
-  border-color: #dc3545;
-  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+.contact-info strong {
+  color: var(--primary-blue);
+  margin-right: 8px;
 }
 
-/* Media queries per dispositivi mobili */
+/* Animazioni */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries Responsive per Privacy Policy */
+@media (max-width: 1024px) {
+  .privacy-content {
+    margin: -40px auto 60px;
+    padding: 40px 30px;
+  }
+  
+  .privacy-container {
+    gap: 32px;
+  }
+}
+
 @media (max-width: 768px) {
-  .privacy-consent {
-    margin: 16px 0;
-    padding: 16px;
+  .privacy-hero {
+    height: 50vh;
+    min-height: 350px;
+    padding: 120px 20px 20px;
   }
   
-  .checkbox-container {
-    font-size: 0.9rem;
-    gap: 10px;
+  .privacy-content {
+    margin: -30px auto 50px;
+    padding: 32px 20px;
+    border-radius: 16px;
   }
   
-  .checkmark {
-    height: 18px;
-    width: 18px;
+  .privacy-container {
+    gap: 24px;
   }
   
-  .checkmark:after {
-    left: 5px;
-    top: 1px;
-    width: 5px;
-    height: 9px;
+  .privacy-section {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+  
+  .privacy-section li {
+    padding: 10px 0 10px 28px;
+  }
+  
+  .privacy-section li::before {
+    left: 10px;
+    top: 10px;
+  }
+  
+  .privacy-contact {
+    padding: 28px 20px;
+  }
+  
+  .contact-info {
+    gap: 12px;
+  }
+  
+  .contact-info p {
+    padding: 14px 18px;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
-  .privacy-consent {
-    padding: 14px;
+  .privacy-hero {
+    height: 45vh;
+    min-height: 300px;
+    padding: 100px 16px 16px;
   }
   
-  .checkbox-container {
-    font-size: 0.85rem;
+  .privacy-content {
+    margin: -20px auto 40px;
+    padding: 24px 16px;
+  }
+  
+  .privacy-container {
+    gap: 20px;
+  }
+  
+  .privacy-section {
+    padding: 20px 16px;
+  }
+  
+  .privacy-section h2 {
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+  
+  .privacy-section li {
+    padding: 8px 0 8px 24px;
+  }
+  
+  .privacy-section li::before {
+    left: 8px;
+    top: 8px;
+  }
+  
+  .privacy-contact {
+    padding: 24px 16px;
+  }
+  
+  .contact-info p {
+    padding: 12px 14px;
+    flex-direction: column;
     align-items: flex-start;
+    text-align: left;
+    gap: 8px;
   }
   
-  .checkmark {
-    margin-top: 3px;
+  .contact-info .icon {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 320px) {
+  .privacy-hero {
+    padding: 100px 12px 12px;
+  }
+  
+  .privacy-content {
+    padding: 20px 12px;
+  }
+  
+  .privacy-section {
+    padding: 16px 14px;
+  }
+  
+  .privacy-contact {
+    padding: 20px 14px;
+  }
+  
+  .contact-info p {
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 }

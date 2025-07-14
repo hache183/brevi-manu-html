@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Invio email con Formspree
   async function sendEmailWithFormspree(nome, email, messaggio, privacyConsent) {
     // SOSTITUISCI 'myzpgqno' CON IL TUO ID FORMSPREE
-    const formspreeEndpoint = 'https://formspree.io/f/myzpgqno';
+    const formspreeEndpoint = 'https://formspree.io/f/myzpgnno';
 
     const payload = {
       name: nome,

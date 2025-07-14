@@ -1,88 +1,65 @@
-/* ==============================
-   GLOBAL STYLES (styles.css)
-   ============================== */
+/* ======================================
+   CSS COMPLETO PER CONTRIBUTI.HTML - RESPONSIVE E MIGLIORATO
+   Sostituisci TUTTO il contenuto del tuo contributi.css con questo
+   ====================================== */
 
-/* Variables, resets, typography */
+/* Variabili per coerenza con il resto del sito */
 :root {
   --primary-blue: #0f3f5c;
   --secondary-blue: #4a90e2;
+  --accent-purple: #764ba2;
+  --text-dark: #213547;
+  --text-light: #666;
   --white: #ffffff;
-  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.95);
   --glass-border: rgba(255, 255, 255, 0.2);
-  --border-radius: 12px;
-  --border-radius-large: 20px;
-  --shadow-light: 0 2px 8px rgba(0,0,0,0.1);
-  --shadow-medium: 0 4px 15px rgba(0,0,0,0.15);
-  --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
-  --transition: all 0.3s ease;
+  --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 16px;
+  --border-radius-large: 24px;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  width: 100%;
+/* Assicurati che il body della pagina contributi non abbia overflow */
+.page-contributi {
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  background: #fafbfc;
-  color: #333;
 }
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
 
-/* Utilities */
-.sr-only { /* ... */ }
+/* ======================
+   HERO CONTRIBUTI
+   ====================== */
 
-/* Navbar */
-.navbar { /* 固定中心面板样式 */ }
-.navbar-left, .navbar-links { /* ... */ }
-.menu-toggle { /* ... */ }
-
-/* Castello Hero */
-.castello { /* ... */ }
-
-/* Sezione Progetti */
-.sezione-progetti::before { /* ... */ }
-.progetti-container { /* ... */ }
-.progetto-card { /* ... */ }
-.progetto-img, .progetto-link { /* ... */ }
-
-/* Chi siamo */
-#chisiamo .chi-siamo-text { /* ... */ }
-
-/* Contatti */
-.contatti { /* ... */ }
-.contatti-form, .contatti-info { /* ... */ }
-.contatti-form input, .contatti-form button, .contatti-info p { /* ... */ }
-
-/* Footer */
-.footer { /* ... */ }
-.footer-container, .footer-links, .footer-policies { /* ... */ }
-
-/* Responsività generica */
-@media (hover: none) and (pointer: coarse) { /* ... */ }
-@media (max-width: 480px) { /* miglior legibilità */ }
-
-
-/* ======================================
-   PAGE-SPECIFIC OVERRIDES: contributi.html
-   (applied solo quando <body class="page-contributi">)
-   ======================================
-*/
-
-.page-contributi body { /* nessun overflow orizzontale */ }
-
-/* Hero Contributi */
 .page-contributi header.contributi-hero {
   position: relative;
   background: url("./src/images/castello.jpg") center/cover no-repeat;
   padding-top: 6rem;
   padding-bottom: 4rem;
   overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
+.page-contributi header.contributi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(15, 63, 92, 0.35) 50%,
+    rgba(74, 144, 226, 0.5) 100%
+  );
+  z-index: 1;
+}
+
 .page-contributi header.contributi-hero .mountain-overlay {
   position: absolute;
   bottom: 0;
@@ -92,7 +69,11 @@ img { max-width: 100%; display: block; }
   max-width: 1400px;
   height: 60%;
   z-index: 1;
+  opacity: 0.2;
+  background: url("./src/images/mountains.jpg") center center/cover no-repeat;
+  mix-blend-mode: multiply;
 }
+
 .page-contributi header.contributi-hero .heroTitle,
 .page-contributi header.contributi-hero .descrizione-titolo {
   position: relative;
@@ -102,41 +83,485 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 
-/* Contenuto Contributi */
+.page-contributi .heroTitle {
+  color: var(--white);
+  font-weight: 700;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+  margin-bottom: 24px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.page-contributi .descrizione-titolo {
+  color: var(--white);
+  line-height: 1.6;
+  text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 24px 32px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
+/* ======================
+   CONTENUTO CONTRIBUTI
+   ====================== */
+
 .page-contributi section.contributi-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
   padding: 2rem 1rem;
   margin: 0 auto;
   max-width: 1200px;
+  position: relative;
 }
+
 .page-contributi section.contributi-content .contributo-item {
   background: var(--white);
   border-radius: var(--border-radius);
-  padding: clamp(24px, 5vw, 48px);
+  padding: clamp(24px, 5vw, 40px);
   border-left: 4px solid var(--secondary-blue);
   box-shadow: var(--shadow-light);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(74, 144, 226, 0.1);
 }
+
+.page-contributi section.contributi-content .contributo-item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.03) 0%, transparent 70%);
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.page-contributi section.contributi-content .contributo-item:hover::before {
+  opacity: 1;
+}
+
 .page-contributi section.contributi-content .contributo-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-medium);
+  border-left-color: var(--primary-blue);
 }
 
-/* Media Queries contributi.html */
-@media (max-width: 599px) {
-  .page-contributi header.contributi-hero { padding-top: 4rem; padding-bottom: 3rem; }
-  .page-contributi .heroTitle { font-size: 1.8rem; }
-  .page-contributi .descrizione-titolo { font-size: 0.9rem; }
+/* Titoli delle card */
+.page-contributi .contributo-item h2 {
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
 }
-@media (min-width: 600px) and (max-width: 1024px) {
-  .page-contributi header.contributi-hero { padding-top: 6rem; padding-bottom: 4.5rem; }
-  .page-contributi .heroTitle { font-size: 2.5rem; }
-  .page-contributi .descrizione-titolo { font-size: 1rem; max-width: 80%; }
+
+.page-contributi .contributo-item h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--secondary-blue);
+  border-radius: 1px;
 }
+
+.page-contributi .contributo-item h3 {
+  color: var(--secondary-blue);
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+/* Descrizioni */
+.page-contributi .descrizione-contributo {
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Box finanziamento */
+.page-contributi .finanziamento {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 20px 24px;
+  border-radius: 12px;
+  border-left: 4px solid #28a745;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #495057;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1);
+}
+
+.page-contributi .finanziamento strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.page-contributi .importo {
+  font-weight: 700;
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Animazioni */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================
+   RESPONSIVE BREAKPOINTS
+   ====================== */
+
+/* Mobile: fino a 600px → layout a colonna */
+@media (max-width: 600px) {
+  .page-contributi header.contributi-hero {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    min-height: 350px;
+  }
+  
+  .page-contributi .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .page-contributi .descrizione-titolo {
+    font-size: 0.9rem;
+    padding: 20px 24px;
+  }
+  
+  .page-contributi section.contributi-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    margin-top: -40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .page-contributi .contributo-item {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 24px 20px;
+  }
+  
+  .page-contributi .contributo-item h2 {
+    font-size: 1.4rem;
+  }
+  
+  .page-contributi .contributo-item h3 {
+    font-size: 1rem;
+  }
+  
+  .page-contributi .descrizione-contributo {
+    font-size: 1rem;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 18px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .page-contributi .importo {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet: da 601px a 1024px → due colonne */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .page-contributi header.contributi-hero {
+    padding-top: 6rem;
+    padding-bottom: 4.5rem;
+    min-height: 450px;
+  }
+  
+  .page-contributi .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .page-contributi .descrizione-titolo {
+    font-size: 1rem;
+    max-width: 80%;
+    padding: 24px 28px;
+  }
+  
+  .page-contributi section.contributi-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    max-width: 90vw;
+    margin-top: -50px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .page-contributi .contributo-item {
+    padding: 32px 28px;
+  }
+  
+  .page-contributi .contributo-item h2 {
+    font-size: 1.6rem;
+  }
+  
+  .page-contributi .contributo-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .page-contributi .descrizione-contributo {
+    font-size: 1rem;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 20px 24px;
+  }
+  
+  .page-contributi .importo {
+    font-size: 1.05rem;
+  }
+}
+
+/* Desktop: oltre 1024px → tre colonne con stile migliorato */
 @media (min-width: 1025px) {
-  .page-contributi header.contributi-hero { padding-top: 8rem; padding-bottom: 6rem; }
-  .page-contributi .heroTitle { font-size: 3rem; }
-  .page-contributi .descrizione-titolo { font-size: 1.1rem; max-width: 60%; }
+  .page-contributi header.contributi-hero {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    min-height: 500px;
+  }
+  
+  .page-contributi .heroTitle {
+    font-size: 3.5rem;
+  }
+  
+  .page-contributi .descrizione-titolo {
+    font-size: 1.2rem;
+    max-width: 70%;
+    padding: 32px 40px;
+  }
+  
+  .page-contributi section.contributi-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 4rem 1.5rem;
+    max-width: 1600px;
+    margin-top: -80px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-heavy);
+    border: 1px solid var(--glass-border);
+    align-items: start;
+  }
+  
+  .page-contributi .contributo-item {
+    padding: 32px 28px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
+    min-height: 600px;
+    min-width: 0;
+  }
+  
+  .page-contributi .contributo-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(74, 144, 226, 0.2);
+  }
+  
+  .page-contributi .contributo-item h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    grid-row: 1;
+    align-self: start;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .page-contributi .contributo-item h2::after {
+    width: 50px;
+    height: 3px;
+    margin-top: 8px;
+  }
+  
+  .page-contributi .contributo-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    grid-row: 2;
+    align-self: start;
+    min-height: 30px;
+  }
+  
+  .page-contributi .descrizione-contributo {
+    font-size: 1rem;
+    margin-bottom: 0;
+    grid-row: 3;
+    align-self: start;
+    line-height: 1.6;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 24px 26px;
+    border-radius: 12px;
+    border-left: 5px solid #28a745;
+    margin-top: 0;
+    grid-row: 4;
+    align-self: end;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 0.9rem;
+  }
+  
+  .page-contributi .importo {
+    font-size: 1.15rem;
+    padding: 3px 8px;
+  }
+  
+  /* Animazioni di entrata per desktop */
+  .page-contributi .contributo-item {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .page-contributi .contributo-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .page-contributi .contributo-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .page-contributi .contributo-item:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+}
+
+/* Schermi molto grandi: oltre 1440px */
+@media (min-width: 1441px) {
+  .page-contributi section.contributi-content {
+    max-width: 1800px;
+    padding: 5rem 2rem;
+    gap: 2.5rem;
+  }
+  
+  .page-contributi .contributo-item {
+    padding: 36px 32px;
+    min-height: 650px;
+  }
+  
+  .page-contributi .contributo-item h2 {
+    font-size: 1.8rem;
+    min-height: 70px;
+  }
+  
+  .page-contributi .contributo-item h3 {
+    font-size: 1.1rem;
+    min-height: 35px;
+  }
+  
+  .page-contributi .descrizione-contributo {
+    font-size: 1.05rem;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 28px 30px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Fix per schermi molto piccoli */
+@media (max-width: 480px) {
+  .page-contributi header.contributi-hero {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    min-height: 300px;
+  }
+  
+  .page-contributi .heroTitle {
+    font-size: 1.6rem;
+  }
+  
+  .page-contributi .descrizione-titolo {
+    font-size: 0.85rem;
+    padding: 18px 20px;
+  }
+  
+  .page-contributi section.contributi-content {
+    padding: 1rem 0.75rem;
+    margin-top: -30px;
+    gap: 1.25rem;
+  }
+  
+  .page-contributi .contributo-item {
+    padding: 20px 16px;
+  }
+  
+  .page-contributi .contributo-item h2 {
+    font-size: 1.3rem;
+  }
+  
+  .page-contributi .contributo-item h3 {
+    font-size: 0.95rem;
+  }
+  
+  .page-contributi .descrizione-contributo {
+    font-size: 0.95rem;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 16px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .page-contributi .importo {
+    font-size: 0.95rem;
+  }
+}
+
+/* Fix per prevenire overflow orizzontale */
+@media (max-width: 320px) {
+  .page-contributi section.contributi-content {
+    padding: 1rem 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: calc(100% - 1rem);
+  }
+  
+  .page-contributi .contributo-item {
+    padding: 16px 14px;
+  }
+  
+  .page-contributi .finanziamento {
+    padding: 14px 16px;
+  }
 }
