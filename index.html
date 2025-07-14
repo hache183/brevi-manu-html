@@ -13,7 +13,7 @@
       <img src="../src/images/logo.png" alt="Logo" class="logo">
       <img src="../src/images/scrittabrevimanu.png" alt="Brevi Manu" class="breviManu">
     </div>
-    <button class="menu-toggle">&#9776;</button>
+    <button class="menu-toggle" aria-label="Menu di navigazione">&#9776;</button>
     <div class="navbar-links">
       <a href="#home">HOME</a>
       <a href="#progetti">PROGETTI</a>
@@ -36,26 +36,26 @@
     <p>Scopri i progetti che il nostro team ha realizzato con passione e dedizione.</p>
 
     <div class="progetti-container">
-      <div class="progetto-card">
+      <article class="progetto-card">
         <img src="../src/images/sovra.png" alt="Sovranaturale" class="progetto-img">
         <h3>Sovranaturale</h3>
         <p class="descrizione-progetto">Salone di vini naturali e gastronomia.</p>
-        <a href="https://sovranaturale.it/" target="_blank" class="progetto-link">Visita il sito</a>
-      </div>
+        <a href="https://sovranaturale.it/" target="_blank" class="progetto-link" rel="noopener">Visita il sito</a>
+      </article>
 
-      <div class="progetto-card">
+      <article class="progetto-card">
         <img src="../src/images/sementi.png" alt="Progetto Sementi" class="progetto-img">
         <h3>Progetto Sementi</h3>
         <p class="descrizione-progetto">Spazio per la collaborazione e la crescita dei giovani.</p>
-        <a href="https://progettosementi.it/" target="_blank" class="progetto-link">Visita il sito</a>
-      </div>
+        <a href="https://progettosementi.it/" target="_blank" class="progetto-link" rel="noopener">Visita il sito</a>
+      </article>
 
-      <div class="progetto-card">
+      <article class="progetto-card">
         <img src="../src/images/sovra.png" alt="Sovranaturale Pop Up" class="progetto-img">
         <h3>Sovranaturale Pop Up</h3>
         <p class="descrizione-progetto">Eventi side di Sovranaturale.</p>
-        <a href="https://sovranaturale.it/sovranaturale-pop-up/" target="_blank" class="progetto-link">Visita il sito</a>
-      </div>
+        <a href="https://sovranaturale.it/sovranaturale-pop-up/" target="_blank" class="progetto-link" rel="noopener">Visita il sito</a>
+      </article>
     </div>
   </section>
 
@@ -72,17 +72,17 @@
 
     <div class="contatti-container">
       <form id="contactForm" class="contatti-form">
-        <input type="text" name="nome" placeholder="Il tuo nome" required>
-        <input type="email" name="email" placeholder="La tua email" required>
-        <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required></textarea>
+        <input type="text" name="nome" placeholder="Il tuo nome" required aria-label="Il tuo nome">
+        <input type="email" name="email" placeholder="La tua email" required aria-label="La tua email">
+        <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio" required aria-label="Il tuo messaggio"></textarea>
         <button type="submit">Invia</button>
       </form>
 
       <div class="contatti-info">
         <h3>Informazioni di Contatto</h3>
-        <p><span class="icon">📧</span> ass.brevimanu@gmail.com</p>
-        <p><span class="icon">📞</span> +39 351 512 3934</p>
-        <p><span class="icon">📍</span> Via Vito Vittorio Lenoci, 8</p>
+        <p><span class="icon" aria-hidden="true">📧</span> ass.brevimanu@gmail.com</p>
+        <p><span class="icon" aria-hidden="true">📞</span> +39 351 512 3934</p>
+        <p><span class="icon" aria-hidden="true">📍</span> Via Vito Vittorio Lenoci, 8</p>
       </div>
     </div>
   </section>
