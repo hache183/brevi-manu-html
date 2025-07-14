@@ -1,5 +1,3 @@
-/* CSS Mobile-First ottimizzato per iPhone 5/SE (320px) */
-
 /* Reset e variabili CSS */
 :root {
   --primary-blue: #0f3f5c;
@@ -14,8 +12,8 @@
   --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
   --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius: 12px;
-  --border-radius-large: 16px;
+  --border-radius: 16px;
+  --border-radius-large: 24px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -25,14 +23,8 @@
   box-sizing: border-box;
 }
 
-*:before, *:after {
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100vw;
 }
 
 body {
@@ -41,11 +33,9 @@ body {
   background-color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
-  max-width: 100vw;
-  position: relative;
 }
 
-/* Background generale - MOBILE FIRST */
+/* Background generale */
 body::before {
   content: '';
   position: fixed;
@@ -55,7 +45,7 @@ body::before {
   height: 100%;
   background: url("../src/images/mountains.jpg") center center/cover no-repeat;
   z-index: -2;
-  opacity: 0.1;
+  opacity: 0.15;
 }
 
 body::after {
@@ -65,25 +55,25 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(118, 75, 162, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
   z-index: -1;
 }
 
-/* NAVBAR - MOBILE FIRST (iPhone 5/SE) */
+/* Navbar ottimizzata */
 .navbar {
   position: fixed;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  width: calc(100% - 16px);
-  max-width: calc(100vw - 16px);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
+  padding: 16px 32px;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
-  border-radius: 16px;
+  border-radius: 50px;
   box-shadow: var(--shadow-medium);
   border: 1px solid var(--glass-border);
   z-index: 1000;
@@ -93,86 +83,58 @@ body::after {
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+  gap: 16px;
 }
 
 .logo {
-  height: 32px;
-  width: auto;
+  height: 48px;
   transition: var(--transition);
 }
 
+.logo:hover {
+  transform: scale(1.05);
+}
+
 .breviManu {
-  width: 80px;
+  width: 130px;
   height: auto;
-  max-width: 80px;
 }
 
 .menu-toggle {
-  display: block;
-  font-size: 18px;
+  display: none;
+  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--primary-blue);
-  padding: 6px;
-  border-radius: 6px;
+  padding: 8px;
+  border-radius: 8px;
   transition: var(--transition);
   z-index: 1001;
   position: relative;
-  flex-shrink: 0;
 }
 
 .navbar-links {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  flex-direction: column;
-  padding: 16px;
-  border-radius: 0 0 16px 16px;
-  box-shadow: var(--shadow-medium);
-  gap: 4px;
-  border: 1px solid var(--glass-border);
-  border-top: none;
-}
-
-.navbar-links.active {
   display: flex;
-  animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  gap: 8px;
+  align-items: center;
 }
 
 .navbar-links a {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--primary-blue);
-  padding: 10px 16px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 30px;
   transition: var(--transition);
-  text-align: center;
-  white-space: nowrap;
+  position: relative;
 }
 
 .navbar-links a:hover {
   background: var(--secondary-blue);
   color: var(--white);
+  transform: translateY(-1px);
 }
 
 .navbar-hidden {
@@ -180,13 +142,13 @@ body::after {
 }
 
 .navbar-visible {
-  top: 8px;
+  top: 20px;
 }
 
-/* HERO SECTION - MOBILE FIRST */
+/* Hero section */
 .castello {
   background: url("../src/images/castello.jpg") center center/cover no-repeat;
-  height: 75vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,9 +156,6 @@ body::after {
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 0 8px;
-  width: 100%;
-  max-width: 100%;
 }
 
 .castello::before {
@@ -230,33 +189,30 @@ body::after {
 
 .heroTitle {
   color: var(--white);
-  font-size: 2.2rem;
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 700;
   text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
-  margin: 0 0 16px 0;
+  margin: 0;
   z-index: 3;
   position: relative;
   animation: fadeInUp 1.2s ease-out;
-  word-wrap: break-word;
-  max-width: 100%;
 }
 
 .descrizione-titolo {
   color: var(--white);
-  max-width: calc(100% - 16px);
-  font-size: 0.85rem;
-  line-height: 1.5;
+  max-width: min(900px, 90%);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
   z-index: 3;
   position: relative;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.15);
-  padding: 16px 20px;
+  padding: 24px 32px;
   border-radius: var(--border-radius);
-  margin: 0 8px;
+  margin-top: 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   animation: fadeInUp 1.2s ease-out 0.3s both;
-  word-wrap: break-word;
 }
 
 @keyframes fadeInUp {
@@ -270,12 +226,10 @@ body::after {
   }
 }
 
-/* SEZIONI GENERALI - MOBILE FIRST */
+/* Sezioni generali */
 section {
-  padding: 40px 8px;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
   position: relative;
-  width: 100%;
-  max-width: 100%;
 }
 
 section:not(.sezione-progetti) {
@@ -285,35 +239,32 @@ section:not(.sezione-progetti) {
 }
 
 section h1 {
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   color: var(--primary-blue) !important;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   text-align: center;
   position: relative;
-  word-wrap: break-word;
-  padding: 0 8px;
 }
 
 section h1::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
+  width: 60px;
   height: 3px;
   background: linear-gradient(90deg, var(--secondary-blue), var(--accent-purple));
   border-radius: 2px;
 }
 
-/* SEZIONE PROGETTI - MOBILE FIRST */
+/* Sezione progetti */
 .sezione-progetti {
   background: url("../src/images/sfondo3.png") center center/cover no-repeat;
-  background-attachment: scroll; /* Fixed causa problemi su mobile */
+  background-attachment: fixed;
   position: relative;
   overflow: hidden;
-  padding: 40px 6px;
 }
 
 .sezione-progetti::before {
@@ -346,14 +297,15 @@ section h1::after {
 
 .progetti-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-top: 24px;
-  width: 100%;
-  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* CARD PROGETTI - MOBILE FIRST */
+/* Card progetti ottimizzate */
 .progetto-card {
   background: var(--white);
   border-radius: var(--border-radius);
@@ -364,135 +316,120 @@ section h1::after {
   flex-direction: column;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  text-align: center;
-  margin: 0 4px;
-  max-width: calc(100% - 8px);
 }
 
 .progetto-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-heavy);
 }
 
 .progetto-img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
   object-position: center;
   transition: var(--transition);
 }
 
 .progetto-card:hover .progetto-img {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .progetto-card h3 {
-  padding: 16px 12px 6px;
+  padding: 24px 24px 8px;
   margin: 0;
   color: var(--primary-blue);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  word-wrap: break-word;
 }
 
 .descrizione-progetto {
-  padding: 0 12px;
+  padding: 0 24px;
   color: var(--text-light);
-  line-height: 1.5;
+  line-height: 1.6;
   flex-grow: 1;
-  margin-bottom: 16px;
-  font-size: 0.9rem;
-  word-wrap: break-word;
+  margin-bottom: 24px;
 }
 
 .progetto-link {
   display: block;
-  margin: 0 12px 16px;
-  padding: 10px 0;
+  margin: 0 24px 24px;
+  padding: 14px 0;
   background: var(--primary-blue);
   color: var(--white);
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   text-align: center;
   font-weight: 500;
   transition: var(--transition);
   border: 2px solid var(--primary-blue);
-  font-size: 0.9rem;
 }
 
 .progetto-link:hover {
   background: var(--secondary-blue);
   border-color: var(--secondary-blue);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-/* CHI SIAMO - MOBILE FIRST */
-#chisiamo {
-  padding: 40px 8px;
-}
-
+/* Chi siamo */
 #chisiamo .chi-siamo-text {
-  max-width: calc(100% - 8px);
-  margin: 0 auto; /* Centratura anche su mobile */
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
   color: var(--text-dark);
   text-align: center;
   background: var(--glass-bg);
-  padding: 24px 16px;
+  padding: clamp(32px, 5vw, 48px);
   border-radius: var(--border-radius-large);
   backdrop-filter: blur(20px);
   box-shadow: var(--shadow-medium);
   border: 1px solid var(--glass-border);
-  word-wrap: break-word;
 }
 
-/* CONTATTI - MOBILE FIRST */
+/* Contatti ridisegnati */
 .contatti {
   background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(118, 75, 162, 0.05));
-  padding: 40px 8px;
 }
 
 .contatti > p {
   text-align: center;
-  max-width: calc(100% - 16px);
-  margin: 0 8px 32px;
-  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  font-size: 1.1rem;
   color: var(--text-light);
-  word-wrap: break-word;
 }
 
 .contatti-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-  margin-top: 24px;
-  max-width: calc(100% - 8px);
-  margin-left: 4px;
-  margin-right: 4px;
+  gap: 48px;
+  margin-top: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contatti-form {
   background: var(--white);
-  padding: 20px 16px;
+  padding: 48px;
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-medium);
   border: 1px solid rgba(74, 144, 226, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .contatti-form input,
 .contatti-form textarea {
-  padding: 14px 16px;
+  padding: 18px 24px;
   border: 2px solid #e9ecef;
-  border-radius: 10px;
-  font-size: 16px; /* Previene zoom su iOS */
+  border-radius: 12px;
+  font-size: 1rem;
   background: #fafbfc;
   transition: var(--transition);
   font-family: inherit;
-  width: 100%;
 }
 
 .contatti-form input:focus,
@@ -506,16 +443,16 @@ section h1::after {
 
 .contatti-form textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 140px;
 }
 
 .contatti-form button {
-  padding: 14px 24px;
+  padding: 18px 32px;
   background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
   color: var(--white);
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
@@ -528,9 +465,13 @@ section h1::after {
   box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
 }
 
+.contatti-form button:active {
+  transform: translateY(0);
+}
+
 .contatti-info {
   background: var(--white);
-  padding: 20px 16px;
+  padding: 48px;
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-medium);
   border: 1px solid rgba(74, 144, 226, 0.1);
@@ -539,26 +480,22 @@ section h1::after {
 
 .contatti-info h3 {
   color: var(--primary-blue);
-  margin-bottom: 20px;
-  font-size: 1.4rem;
+  margin-bottom: 32px;
+  font-size: 1.6rem;
   font-weight: 600;
-  word-wrap: break-word;
 }
 
 .contatti-info p {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 12px;
-  padding: 12px 14px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 16px 20px;
   background: rgba(74, 144, 226, 0.05);
-  border-radius: 10px;
+  border-radius: 12px;
   transition: var(--transition);
   text-align: left;
   border: 1px solid rgba(74, 144, 226, 0.1);
-  font-size: 0.9rem;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .contatti-info p:hover {
@@ -571,26 +508,26 @@ section h1::after {
 }
 
 .icon {
-  font-size: 1.1rem;
-  min-width: 20px;
+  margin-right: 16px;
+  font-size: 1.3rem;
+  min-width: 24px;
   text-align: center;
-  margin-bottom: 4px;
 }
 
-/* FOOTER - MOBILE FIRST */
+/* Footer */
 .footer {
   background: linear-gradient(135deg, rgba(15, 63, 92, 0.95), rgba(0, 0, 0, 0.9));
   color: var(--white);
-  padding: 32px 8px 16px;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 40px) 20px;
   backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
@@ -599,11 +536,11 @@ section h1::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .logo-img {
-  width: 48px;
+  width: 60px;
   height: auto;
   transition: var(--transition);
 }
@@ -611,20 +548,14 @@ section h1::after {
 .footer-logo h2 {
   color: var(--secondary-blue);
   margin: 0;
-  font-size: 1.3rem;
-}
-
-.footer-logo p {
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
 .footer-links,
 .footer-policies {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .footer-links a,
@@ -634,7 +565,6 @@ section h1::after {
   transition: var(--transition);
   padding: 8px 12px;
   border-radius: 8px;
-  font-size: 0.9rem;
 }
 
 .footer-links a:hover,
@@ -644,18 +574,17 @@ section h1::after {
 }
 
 .footer-bottom {
-  margin-top: 24px;
-  padding-top: 16px;
+  margin-top: 40px;
+  padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.85rem;
 }
 
-/* PAGINA CONTRIBUTI - MOBILE FIRST */
+/* Pagina contributi */
 .contributi-hero {
   background: url("../src/images/castello.jpg") center center/cover no-repeat;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -663,7 +592,6 @@ section h1::after {
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding: 0 8px;
 }
 
 .contributi-hero::before {
@@ -683,9 +611,9 @@ section h1::after {
 }
 
 .contributi-content {
-  max-width: calc(100% - 16px);
-  margin: -32px 8px 40px;
-  padding: 24px 12px;
+  max-width: 1200px;
+  margin: -60px auto 80px;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 60px);
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border-radius: var(--border-radius-large);
@@ -698,8 +626,8 @@ section h1::after {
 .contributo-item {
   background: var(--white);
   border-radius: var(--border-radius);
-  padding: 20px 16px;
-  margin-bottom: 20px;
+  padding: clamp(32px, 5vw, 48px);
+  margin-bottom: 32px;
   box-shadow: var(--shadow-light);
   border-left: 4px solid var(--secondary-blue);
   transition: var(--transition);
@@ -707,7 +635,7 @@ section h1::after {
 }
 
 .contributo-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-medium);
 }
 
@@ -717,12 +645,11 @@ section h1::after {
 
 .contributo-item h2 {
   color: var(--primary-blue);
-  font-size: 1.4rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   position: relative;
-  word-wrap: break-word;
 }
 
 .contributo-item h2::after {
@@ -738,32 +665,38 @@ section h1::after {
 
 .contributo-item h3 {
   color: var(--secondary-blue);
-  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   opacity: 0.9;
-  word-wrap: break-word;
 }
 
 .descrizione-contributo {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.7;
   color: var(--text-dark);
-  margin-bottom: 20px;
-  word-wrap: break-word;
+  margin-bottom: 24px;
 }
 
 .finanziamento {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  padding: 16px 12px;
-  border-radius: 10px;
+  padding: 24px;
+  border-radius: 12px;
   border-left: 4px solid #28a745;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: #495057;
   position: relative;
-  word-wrap: break-word;
+}
+
+.finanziamento::before {
+  content: '💰';
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 1.2rem;
+  opacity: 0.2;
 }
 
 .finanziamento strong {
@@ -774,257 +707,241 @@ section h1::after {
 .importo {
   font-weight: 700;
   color: #28a745;
-  font-size: 1rem;
+  font-size: 1.1rem;
   background: rgba(40, 167, 69, 0.1);
-  padding: 2px 4px;
+  padding: 2px 6px;
   border-radius: 4px;
 }
 
-/* MEDIA QUERIES - PROGRESSIVE ENHANCEMENT */
-
-/* Tablet Portrait */
-@media (min-width: 481px) {
+/* Media Queries Responsive */
+@media (max-width: 1024px) {
   .navbar {
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    padding: 12px 20px;
-    border-radius: 24px;
+    width: calc(100% - 30px);
+    padding: 14px 28px;
   }
   
-  .logo {
-    height: 40px;
+  .progetti-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 24px;
+    width: calc(100% - 20px);
+    top: 15px;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: var(--shadow-medium);
+    gap: 8px;
+    border: 1px solid var(--glass-border);
+    border-top: none;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-hidden {
+    top: -140px;
+  }
+
+  .navbar-visible {
+    top: 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .progetti-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contatti-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .contatti-form,
+  .contatti-info {
+    padding: 32px 24px;
+  }
+
+  .contatti-info p {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 12px 16px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-links,
+  .footer-policies {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .contributi-content {
+    margin-top: -40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    top: 10px;
+    width: calc(100% - 16px);
+    padding: 10px 20px;
+    border-radius: 20px;
   }
   
   .breviManu {
     width: 100px;
   }
   
+  .logo {
+    height: 36px;
+  }
+
   .castello {
-    height: 80vh;
-    padding: 0 16px;
+    height: 85vh;
   }
-  
-  .heroTitle {
-    font-size: 2.8rem;
+
+  .contributi-hero {
+    height: 50vh;
   }
-  
+
   .descrizione-titolo {
-    font-size: 1rem;
     padding: 20px 24px;
+    margin-top: 20px;
   }
-  
-  section {
-    padding: 50px 16px;
-  }
-  
-  section h1 {
-    font-size: 2.2rem;
-  }
-  
+
   .progetti-container {
     gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 0 16px;
   }
-  
-  .progetto-img {
-    height: 200px;
-  }
-  
-  .contatti-container {
-    gap: 32px;
-    max-width: 600px;
-    margin: 24px auto 0;
-  }
-  
-  .contatti-info p {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .icon {
-    margin-bottom: 0;
-    margin-right: 12px;
-  }
-}
 
-/* Tablet Landscape */
-@media (min-width: 769px) {
-  .navbar {
-    top: 20px;
-    padding: 14px 28px;
-    max-width: 1000px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    align-items: center; /* Fix allineamento verticale */
-    min-height: 70px; /* Aumentato per più spazio */
-    display: flex; /* Esplicito */
-  }
-  
-  .navbar-left {
-    align-items: center; /* Assicura allineamento verticale */
-    gap: 16px;
-    display: flex; /* Esplicito */
-  }
-  
-  .menu-toggle {
-    display: none;
-  }
-  
-  .navbar-links {
-    display: flex;
-    position: static;
-    flex-direction: row;
-    background: none;
-    backdrop-filter: none;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    gap: 8px;
-    border: none;
-    align-items: center; /* Fix allineamento verticale links */
-    height: 100%; /* Prende tutta l'altezza disponibile */
-  }
-  
-  .navbar-links a {
-    font-size: 15px;
-    padding: 12px 20px;
-    border-radius: 30px;
-    display: inline-flex; /* Cambiato da flex a inline-flex */
-    align-items: center; /* Centra verticalmente il testo */
-    justify-content: center; /* Centra orizzontalmente il testo */
-    height: 44px; /* Altezza fissa per uniformità */
-    line-height: 1; /* Line-height a 1 per centratura perfetta */
-    text-align: center; /* Backup per centratura testo */
-    vertical-align: middle; /* Ulteriore backup */
-  }
-  
-  .castello {
-    height: 100vh;
-    padding: 0 32px;
-  }
-  
-  .heroTitle {
-    font-size: 4rem;
-    margin-bottom: 24px;
-  }
-  
-  .descrizione-titolo {
-    font-size: 1.2rem;
-    padding: 24px 32px;
-    max-width: 900px;
-  }
-  
-  section {
-    padding: 80px 40px;
-  }
-  
-  section h1 {
-    font-size: 3rem;
-    margin-bottom: 32px;
-  }
-  
-  .progetti-container {
-    gap: 32px;
-    margin-top: 48px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .progetto-img {
-    height: 220px;
-  }
-  
   .progetto-card h3 {
-    font-size: 1.4rem;
-    padding: 24px 24px 8px;
-  }
-  
-  .descrizione-progetto {
-    padding: 0 24px;
-    margin-bottom: 24px;
-    font-size: 1rem;
-  }
-  
-  .progetto-link {
-    margin: 0 24px 24px;
-    padding: 14px 0;
-    font-size: 1rem;
-  }
-  
-  #chisiamo .chi-siamo-text {
-    max-width: 1000px;
-    font-size: 1.2rem;
-    padding: 48px;
-    margin: 0 auto; /* Fix centratura - era mancante */
-    text-align: center; /* Assicura centratura del testo */
-  }
-  
-  .contatti-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    max-width: 1000px;
-  }
-  
-  .contatti-form,
-  .contatti-info {
-    padding: 48px;
-  }
-  
-  .footer-container {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1200px;
-    gap: 40px;
-  }
-  
-  .contributi-hero {
-    height: 60vh;
-  }
-  
-  .contributi-content {
-    max-width: 1200px;
-    margin: -60px auto 80px;
-    padding: 80px 60px;
-  }
-  
-  .contributo-item {
-    padding: 48px;
-    margin-bottom: 32px;
-  }
-  
-  .contributo-item h2 {
-    font-size: 2rem;
-  }
-  
-  .contributo-item h3 {
+    padding: 20px 20px 8px;
     font-size: 1.3rem;
   }
-  
-  .descrizione-contributo {
+
+  .descrizione-progetto {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .progetto-link {
+    margin: 0 20px 20px;
+    padding: 12px 0;
+  }
+
+  .contatti-container {
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .contatti-form,
+  .contatti-info {
+    padding: 24px 20px;
+  }
+
+  .contatti-form input,
+  .contatti-form textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Previene zoom su iOS */
+  }
+
+  .contatti-form button {
+    padding: 16px 24px;
+  }
+
+  .contatti-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .contatti-info p {
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  .icon {
+    margin-right: 12px;
     font-size: 1.1rem;
+    min-width: 20px;
+  }
+
+  .contributi-content {
+    margin-top: -30px;
+    margin-bottom: 60px;
+    padding: 32px 16px;
+  }
+
+  .finanziamento::before {
+    display: none;
+  }
+
+  .finanziamento {
+    padding: 20px 16px;
   }
 }
 
-/* Desktop Large */
-@media (min-width: 1200px) {
-  .navbar {
-    max-width: 1200px;
+/* Media query aggiuntiva per schermi molto piccoli */
+@media (max-width: 375px) {
+  .contatti-container {
+    padding: 0 12px;
   }
-  
-  .heroTitle {
-    font-size: 5rem;
+
+  .contatti-form,
+  .contatti-info {
+    padding: 20px 16px;
   }
-  
-  section {
-    padding: 100px 60px;
+
+  .contatti-info p {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8px;
   }
-  
-  .sezione-progetti {
-    background-attachment: fixed;
+
+  .icon {
+    margin-right: 0;
+    margin-bottom: 4px;
   }
 }
 
@@ -1050,84 +967,6 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-/* Notifiche responsive */
-.custom-notification {
-  position: fixed;
-  top: 70px;
-  left: 8px;
-  right: 8px;
-  z-index: 9999;
-  min-width: auto;
-  max-width: none;
-  padding: 12px 16px;
-  border-radius: 12px;
-  color: white;
-  font-family: inherit;
-  font-size: 13px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transform: translateY(-100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.custom-notification.success {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.custom-notification.error {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-.custom-notification.info {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-}
-
-.notification-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.notification-close {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 1;
-  transition: background 0.2s;
-  flex-shrink: 0;
-}
-
-.notification-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Fix per prevenire overflow orizzontale su tutti i dispositivi */
-.container-safe {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Assicurati che le immagini non escano mai */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Fix per testi lunghi che potrebbero causare overflow */
-.text-break {
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-}
-
 /* Animazioni ridotte per utenti che preferiscono meno movimento */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1135,187 +974,5 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  html {
-    scroll-behavior: auto;
-  }
 }
 
-/* Media query per notifiche su schermi più grandi */
-@media (min-width: 481px) {
-  .custom-notification {
-    top: 80px;
-    left: 20px;
-    right: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 769px) {
-  .custom-notification {
-    top: 90px;
-    right: 20px;
-    left: auto;
-    transform: translateX(100%);
-    max-width: 500px;
-    margin: 0;
-  }
-  
-  .custom-notification.show {
-    transform: translateX(0);
-  }
-}
-
-/* Fix specifici per iOS Safari */
-@supports (-webkit-touch-callout: none) {
-  /* Fix per il viewport height su iOS */
-  .castello {
-    height: -webkit-fill-available;
-    min-height: 75vh;
-  }
-  
-  .contributi-hero {
-    height: -webkit-fill-available;
-    min-height: 50vh;
-  }
-  
-  /* Fix per input su iOS */
-  .contatti-form input,
-  .contatti-form textarea {
-    -webkit-appearance: none;
-    border-radius: 10px;
-  }
-  
-  /* Previeni zoom su input focus */
-  .contatti-form input:focus,
-  .contatti-form textarea:focus {
-    font-size: 16px;
-  }
-}
-
-/* Fix per Firefox */
-@-moz-document url-prefix() {
-  .navbar {
-    backdrop-filter: none;
-    background: rgba(255, 255, 255, 0.98);
-  }
-  
-  .contatti-form,
-  .contatti-info,
-  #chisiamo .chi-siamo-text,
-  .contributi-content {
-    backdrop-filter: none;
-    background: rgba(255, 255, 255, 0.98);
-  }
-}
-
-/* Fix per dispositivi con hover non supportato (touch) */
-@media (hover: none) and (pointer: coarse) {
-  .progetto-card:hover,
-  .contributo-item:hover,
-  .contatti-info p:hover {
-    transform: none;
-  }
-  
-  .navbar-links a:hover,
-  .progetto-link:hover,
-  .contatti-form button:hover,
-  .footer-links a:hover,
-  .footer-policies a:hover {
-    transform: none;
-  }
-  
-  /* Ma mantieni gli effetti su tap/touch */
-  .progetto-card:active {
-    transform: translateY(-2px);
-  }
-  
-  .contatti-form button:active {
-    transform: translateY(-1px);
-  }
-}
-
-/* Performance optimizations */
-.progetto-img,
-.logo,
-.logo-img {
-  will-change: transform;
-}
-
-.navbar {
-  will-change: top;
-}
-
-.navbar-links {
-  will-change: opacity, transform;
-}
-
-/* Fix per screen readers */
-@media (prefers-reduced-motion: reduce) {
-  .heroTitle,
-  .descrizione-titolo {
-    animation: none;
-  }
-}
-
-/* Ultimo fix per iPhone 5/SE per essere sicuri */
-@media (max-width: 320px) and (-webkit-device-pixel-ratio: 2) {
-  /* Specifico per iPhone 5/5S/5C/SE prima generazione */
-  body {
-    font-size: 14px;
-  }
-  
-  .navbar {
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    width: calc(100% - 10px);
-    padding: 6px 10px;
-  }
-  
-  .breviManu {
-    width: 70px;
-  }
-  
-  .logo {
-    height: 28px;
-  }
-  
-  .heroTitle {
-    font-size: 2rem;
-  }
-  
-  .descrizione-titolo {
-    font-size: 0.8rem;
-    padding: 14px 16px;
-    margin: 0 6px;
-  }
-  
-  section {
-    padding: 32px 6px;
-  }
-  
-  section h1 {
-    font-size: 1.6rem;
-  }
-  
-  .progetti-container {
-    gap: 12px;
-    margin: 0 2px;
-  }
-  
-  .progetto-card {
-    margin: 0 2px;
-  }
-  
-  .contatti-container {
-    margin: 0 2px;
-    gap: 20px;
-  }
-  
-  .contributi-content {
-    margin: -24px 6px 32px;
-    padding: 20px 10px;
-  }
-}
