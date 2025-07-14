@@ -733,6 +733,621 @@ section h1::after {
     top: 15px;
   }
 
+  /* Aggiungi queste regole CSS al tuo styles.css esistente */
+
+/* Fix per navbar mobile che si sovrappone al contenuto */
+@media (max-width: 480px) {
+  .castello {
+    padding-top: 120px;
+    height: 95vh; /* Aumentato per schermi medi */
+    min-height: 580px;
+  }
+  
+  .contributi-hero {
+    padding-top: 120px;
+    height: 50vh; /* Aumentato leggermente */
+    min-height: 300px;
+  }
+  
+  /* Quando il menu è aperto, aggiungi più spazio */
+  .navbar-links.active ~ .castello,
+  .navbar-links.active ~ .contributi-hero {
+    padding-top: 200px;
+  }
+}
+
+/* Media query specifica per iPhone SE (375px x 667px) */
+@media (min-width: 321px) and (max-width: 375px) {
+  
+  /* Navbar ottimizzata per iPhone SE */
+  .navbar {
+    top: 8px;
+    width: calc(100% - 16px);
+    padding: 8px 20px;
+    border-radius: 16px;
+    min-height: auto;
+    max-height: 65px;
+  }
+  
+  .navbar-left {
+    gap: 12px;
+  }
+  
+  .logo {
+    height: 36px;
+  }
+  
+  .breviManu {
+    width: 100px;
+  }
+  
+  .menu-toggle {
+    font-size: 22px;
+    padding: 8px;
+  }
+  
+  /* Hero section per iPhone SE */
+  .castello {
+    height: 100vh;
+    padding: 120px 16px 30px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 710px;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem !important;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  
+  .descrizione-titolo {
+    font-size: 1rem !important;
+    line-height: 1.6;
+    padding: 20px 24px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    max-width: 92%;
+  }
+  
+  /* Sezioni generali */
+  section {
+    padding: 50px 16px;
+  }
+  
+  section h1 {
+    font-size: 2.2rem !important;
+    margin-bottom: 24px;
+  }
+  
+  .sezione-progetti {
+    padding-top: 60px;
+  }
+  
+  section:not(.sezione-progetti):not(.castello):not(.contributi-hero) {
+    padding-top: 55px;
+  }
+  
+  /* Progetti container per iPhone SE */
+  .progetti-container {
+    gap: 24px;
+    padding: 0 12px;
+    margin-top: 40px;
+  }
+  
+  .progetto-card {
+    border-radius: 14px;
+  }
+  
+  .progetto-img {
+    height: 200px;
+  }
+  
+  .progetto-card h3 {
+    padding: 20px 20px 8px;
+    font-size: 1.4rem;
+  }
+  
+  .descrizione-progetto {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+  }
+  
+  .progetto-link {
+    margin: 0 20px 20px;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+  
+  /* Chi siamo per iPhone SE */
+  #chisiamo .chi-siamo-text {
+    padding: 32px 24px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  /* Contatti per iPhone SE */
+  .contatti-container {
+    padding: 0 12px;
+    gap: 32px;
+  }
+  
+  .contatti-form,
+  .contatti-info {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+  
+  .contatti-form input,
+  .contatti-form textarea {
+    padding: 16px 18px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  
+  .contatti-form textarea {
+    min-height: 130px;
+  }
+  
+  .contatti-form button {
+    padding: 16px 24px;
+    font-size: 1.1rem;
+  }
+  
+  .contatti-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 28px;
+  }
+  
+  .contatti-info p {
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .icon {
+    margin-right: 14px;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+  
+  /* Footer per iPhone SE */
+  .footer {
+    padding: 40px 16px 20px;
+  }
+  
+  .footer-container {
+    gap: 32px;
+  }
+  
+  .footer-logo h2 {
+    font-size: 1.4rem;
+  }
+  
+  .footer-logo p {
+    font-size: 1rem;
+  }
+  
+  .footer-links,
+  .footer-policies {
+    gap: 8px;
+  }
+  
+  .footer-links a,
+  .footer-policies a {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  /* Pagina contributi per iPhone SE */
+  .contributi-hero {
+    height: 55vh;
+    padding: 120px 16px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 500px;
+  }
+  
+  .contributi-content {
+    margin-top: -30px;
+    margin-bottom: 50px;
+    padding: 32px 16px;
+    border-radius: 18px;
+  }
+  
+  .contributo-item {
+    padding: 28px 20px;
+    margin-bottom: 24px;
+    border-radius: 14px;
+  }
+  
+  .contributo-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .contributo-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+  }
+  
+  .descrizione-contributo {
+    font-size: 1rem;
+    margin-bottom: 22px;
+  }
+  
+  .finanziamento {
+    padding: 20px 18px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+  
+  .importo {
+    font-size: 1.05rem;
+    padding: 2px 6px;
+  }
+}
+
+/* Media query specifica per iPhone 5/SE e schermi molto piccoli */
+@media (max-width: 320px) {
+  
+  /* Navbar ottimizzata per schermi ultra-piccoli */
+  .navbar {
+    top: 5px;
+    width: calc(100% - 10px);
+    padding: 6px 12px;
+    border-radius: 12px;
+    min-height: auto;
+    max-height: 60px; /* Limita l'altezza massima */
+  }
+  
+  .navbar-left {
+    gap: 8px;
+  }
+  
+  .logo {
+    height: 28px;
+  }
+  
+  .breviManu {
+    width: 70px; /* Ridotto ulteriormente */
+  }
+  
+  .menu-toggle {
+    font-size: 18px;
+    padding: 4px;
+  }
+  
+  /* Hero section per schermi piccoli */
+  .castello {
+    height: 100vh; /* Aumentato da 80vh a 100vh per contenere tutto il contenuto */
+    padding: 120px 12px 40px 12px; /* Aggiunto padding-bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 620px; /* Altezza minima per garantire visibilità */
+  }
+  
+  .heroTitle {
+    font-size: 2.2rem !important;
+    line-height: 1.1;
+    margin-bottom: 20px; /* Aumentato lo spazio sotto il titolo */
+  }
+  
+  .descrizione-titolo {
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    padding: 18px 22px;
+    margin-top: 0;
+    margin-bottom: 20px; /* Aggiunto margin-bottom per spazio dalla sezione successiva */
+    max-width: 95%;
+  }
+  
+  /* Sezioni generali */
+  section {
+    padding: 40px 12px;
+  }
+  
+  /* Aggiungi padding-top specifico per la prima sezione dopo hero */
+  .sezione-progetti {
+    padding-top: 60px;
+  }
+  
+  section:not(.sezione-progetti):not(.castello):not(.contributi-hero) {
+    padding-top: 50px;
+  }
+  
+  section h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 20px;
+  }
+  
+  /* Progetti container */
+  .progetti-container {
+    gap: 16px;
+    padding: 0 8px;
+    margin-top: 32px;
+  }
+  
+  .progetto-card {
+    border-radius: 12px;
+  }
+  
+  .progetto-img {
+    height: 180px;
+  }
+  
+  .progetto-card h3 {
+    padding: 16px 16px 6px;
+    font-size: 1.2rem;
+  }
+  
+  .descrizione-progetto {
+    padding: 0 16px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+  
+  .progetto-link {
+    margin: 0 16px 16px;
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Chi siamo */
+  #chisiamo .chi-siamo-text {
+    padding: 24px 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* Contatti */
+  .contatti-container {
+    padding: 0 8px;
+    gap: 20px;
+  }
+  
+  .contatti-form,
+  .contatti-info {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+  
+  .contatti-form input,
+  .contatti-form textarea {
+    padding: 12px 14px;
+    font-size: 16px; /* Importante per evitare zoom automatico */
+    border-radius: 8px;
+  }
+  
+  .contatti-form textarea {
+    min-height: 120px;
+  }
+  
+  .contatti-form button {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+  
+  .contatti-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  
+  .contatti-info p {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .icon {
+    margin-right: 0;
+    margin-bottom: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 32px 12px 16px;
+  }
+  
+  .footer-container {
+    gap: 24px;
+  }
+  
+  .footer-logo h2 {
+    font-size: 1.3rem;
+  }
+  
+  .footer-logo p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links,
+  .footer-policies {
+    gap: 6px;
+  }
+  
+  .footer-links a,
+  .footer-policies a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+  
+  /* Pagina contributi */
+  .contributi-hero {
+    height: 45vh;
+    padding: 140px 12px 0 12px; /* Aumentato padding-top */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Cambiato da center a flex-start */
+    align-items: center;
+    min-height: 450px
+  }
+  
+  .contributi-content {
+    margin-top: -25px;
+    margin-bottom: 40px;
+    padding: 24px 12px;
+    border-radius: 16px;
+  }
+  
+  .contributo-item {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  .contributo-item h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+  
+  .contributo-item h3 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .descrizione-contributo {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  .finanziamento {
+    padding: 16px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
+  .importo {
+    font-size: 1rem;
+    padding: 1px 4px;
+  }
+}
+
+/* Media query per iPhone 4 (se necessario supportarlo) */
+@media (max-width: 280px) {
+  .heroTitle {
+    font-size: 1.8rem !important;
+  }
+  
+  .descrizione-titolo {
+    font-size: 0.85rem !important;
+    padding: 14px 16px;
+  }
+  
+  .castello {
+    height: 100vh; /* Mantieni altezza piena anche per schermi più piccoli */
+    min-height: 550px;
+    padding: 120px 8px 30px 8px;
+  }
+  
+  .navbar {
+    padding: 6px 12px;
+  }
+  
+  .breviManu {
+    width: 70px;
+  }
+  
+  .logo {
+    height: 24px;
+  }
+  
+  section {
+    padding: 32px 8px;
+  }
+  
+  .progetti-container {
+    padding: 0 4px;
+  }
+  
+  .contatti-container {
+    padding: 0 4px;
+  }
+}
+
+/* Miglioramenti per la leggibilità su schermi piccoli */
+@media (max-width: 320px) {
+  
+  /* Aumenta il contrasto del testo */
+  .descrizione-titolo {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+  }
+  
+  /* Ottimizza le dimensioni del testo per la leggibilità */
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Migliora la gestione del menu mobile */
+  .navbar-links {
+    padding: 16px;
+    gap: 4px;
+  }
+  
+  .navbar-links a {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  /* Riduce l'altezza delle immagini per risparmiare spazio */
+  .progetto-img {
+    height: 160px;
+  }
+  
+  /* Ottimizza gli spazi */
+  .progetto-card h3 {
+    padding: 14px 14px 4px;
+  }
+  
+  .descrizione-progetto {
+    padding: 0 14px;
+    margin-bottom: 14px;
+  }
+  
+  .progetto-link {
+    margin: 0 14px 14px;
+  }
+}
+
+/* Fix per prevenire overflow orizzontale */
+@media (max-width: 320px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .navbar-left {
+    max-width: calc(100% - 60px); /* Lascia spazio per il menu toggle */
+  }
+  
+  .heroTitle,
+  .descrizione-titolo {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
   .navbar-links {
     display: none;
     position: absolute;
